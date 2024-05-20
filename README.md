@@ -1,5 +1,6 @@
 # CSS
 in this i am learning CSS concept like flexbox, grid(image gallery), css animation, overflow. all these concepts with bootstrap
+tutorial: css ke liye quackit tutorial ko follow karo. maine ye concept usi website se sikha hai
 
 Home.js
    import React from 'react'
