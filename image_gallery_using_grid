@@ -18,7 +18,7 @@ Home.css
 .container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: 1fr auto 1fr;
     gap: 10px; /* Adjust the gap as needed */
     width:80%;
     height:60%;
