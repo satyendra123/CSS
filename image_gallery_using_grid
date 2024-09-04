@@ -1,3 +1,4 @@
+without overlay effect 
 Home.js
 import React from 'react';
 import './Home.css';
@@ -15,34 +16,48 @@ function Home() {
 
 export default Home;
 
-{/*
-function Home() {
-    return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-4">
-            <div className="img-wrapper img4">
-              <img src="/images/img1.jpg" alt="Sample photo" className="img-fluid" />
-            </div>
-          </div>
-          <div className="col-md-8 img4">
-            <img src="/images/img2.jpg" alt="Sample photo" className="img-fluid" />
-            <div className="row">
-              <div className="col-md-6">
-                <img src="/images/img3.jpg" style={{ height: '285px' }} alt="Sample photo" className="img-fluid" />
-              </div>
-              <div className="col-md-6">
-                <img src="/images/img5.jpg" alt="Sample photo" className="img-fluid" />
-              </div>
-            </div>
-          </div>
-        </div>
+/* with overlay effect
+import React from 'react';
+import './GalleryImagesmodules.css';
+
+function GalleryImages() {
+  return (
+    <div className="container-gallery">
+      <div className="image-container">
+        <img src="/img1.jpg" alt="Sample photo" />
+        <div className="overlay">Metro</div>
       </div>
-    );
-  }
-  
-  export default Home;
-*/}
+
+      <div className="image-container">
+        <img src="/img2.jpg" alt="Sample photo" />
+        <div className="overlay">Toll Plaza</div>
+      </div>
+
+      <div className="image-container">
+        <img src="/img3.jpg" alt="Sample photo" />
+        <div className="overlay">Bridge</div>
+      </div>
+
+      <div className="image-container">
+        <img src="/img4.jpg" alt="Sample photo" />
+        <div className="overlay">Skyscraper</div>
+      </div>
+
+      <div className="image-container">
+        <img src="/img5.jpg" alt="Sample photo" />
+        <div className="overlay">Park</div>
+      </div>
+    </div>
+  );
+}
+
+export default GalleryImages;
+
+
+
+
+
+*/
 
 Home.css
 .container {
@@ -86,3 +101,221 @@ Home.css
   grid-row: 2 / 4;
 }
   
+/*
+Home.css
+
+/*
+.container-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr auto 1fr; 
+    gap: 10px;
+    width: 40%;
+    height: 30%;
+    margin: 50px auto;
+  }
+  
+  .container-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+  }
+  
+  .container-gallery img:nth-child(1) {
+      grid-column: 1/ 2;
+      grid-row: 1 / 3;
+    }
+  .container-gallery img:nth-child(2) {
+    grid-column: 2 / 4;
+    grid-row: 1 / 2;
+  }
+  
+  .container-gallery img:nth-child(3) {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+  
+  .container-gallery img:nth-child(4) {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+  }
+  
+  .container-gallery img:nth-child(5) {
+    grid-column: 3 / 4;
+    grid-row: 2 / 4;
+  }
+*/
+
+/*
+
+.container-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr auto 1fr;
+  gap: 10px;
+  width: 40%;
+  margin: 50px auto;
+}
+
+.container-gallery .image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.container-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.container-gallery .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 255, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  pointer-events: none;
+  clip-path: polygon(0 100%, 0 50%, 50% 100%);
+  transition: clip-path 0.3s ease, opacity 0.3s ease;
+}
+
+.container-gallery .image-container:hover .overlay {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); 
+}
+
+.container-gallery .image-container:hover img {
+  transform: scale(1.05);
+}
+
+.container-gallery .image-container:nth-child(1) {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+
+.container-gallery .image-container:nth-child(2) {
+  grid-column: 2 / 4;
+  grid-row: 1 / 2;
+}
+
+.container-gallery .image-container:nth-child(3) {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.container-gallery .image-container:nth-child(4) {
+  grid-column: 1 / 3;
+  grid-row: 3 / 4;
+}
+
+.container-gallery .image-container:nth-child(5) {
+  grid-column: 3 / 4;
+  grid-row: 2 / 4;
+}
+*/
+
+.container-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr auto 1fr;
+  gap: 10px;
+  width: 40%;
+  margin: 50px auto;
+}
+
+.container-gallery .image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Ensure the overlay stays within the image boundaries */
+}
+
+.container-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.container-gallery .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 255, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  pointer-events: none;
+  transition: clip-path 0.3s ease, opacity 0.3s ease;
+}
+
+.container-gallery .image-container:nth-child(1) .overlay {
+  clip-path: polygon(0 100%, 0 50%, 50% 100%);
+}
+
+.container-gallery .image-container:nth-child(2) .overlay {
+  clip-path: polygon(100% 0, 50% 0, 100% 50%);
+}
+
+.container-gallery .image-container:nth-child(3) .overlay {
+  clip-path: circle(25% at 50% 50%);
+}
+
+.container-gallery .image-container:nth-child(4) .overlay {
+  
+  clip-path: polygon(0 0, 50% 0, 0 50%);
+}
+
+.container-gallery .image-container:nth-child(5) .overlay {
+  clip-path: polygon(100% 0, 50% 0, 100% 50%);
+}
+
+.container-gallery .image-container:hover .overlay {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.container-gallery .image-container:hover img {
+  transform: scale(1.05);
+}
+
+.container-gallery .image-container:nth-child(1) {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+
+.container-gallery .image-container:nth-child(2) {
+  grid-column: 2 / 4;
+  grid-row: 1 / 2;
+}
+
+.container-gallery .image-container:nth-child(3) {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.container-gallery .image-container:nth-child(4) {
+  grid-column: 1 / 3;
+  grid-row: 3 / 4;
+}
+
+.container-gallery .image-container:nth-child(5) {
+  grid-column: 3 / 4;
+  grid-row: 2 / 4;
+}
+
+*/
